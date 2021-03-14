@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="ru" dir="LTR" title="learn" charset="utf-8">
+<html lang="ru" dir="LTR" title="sample4" charset="utf-8">
 
 <head>
     <title>learn</title>
@@ -31,4 +31,4 @@
     ?>
 </body>
 
-</html>;
+</html>
