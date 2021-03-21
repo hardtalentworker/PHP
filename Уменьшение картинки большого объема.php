@@ -12,6 +12,8 @@
 
 <body>
   <?php
+    //Уменьшение картинки большого объёма
+    
     ini_set('memory_limit', '3096M');
     $filename = "20000.png";
 
