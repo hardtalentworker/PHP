@@ -27,3 +27,13 @@
     foreach (get_defined_constants() as $key => $value)
         $dataOut.=$key." ".$value."\n";
     file_put_contents($file_constant, $dataOut);
+  //*****************************************************************    
+    $var=200;											//вычисление 200-го числа Фибоначчи
+	$n1=0;
+	$n=1;
+	for($i=3;$i<=$var;$i++){
+		$result=$n1+$n;
+		echo $i.") ".$n1." + ".$n." = ".$result.PHP_EOL;
+		$n1=$n;
+		$n=$result;
+	}
