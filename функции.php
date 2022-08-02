@@ -27,7 +27,7 @@
     foreach (get_defined_constants() as $key => $value)
         $dataOut.=$key." ".$value."\n";
     file_put_contents($file_constant, $dataOut);
-  //*****************************************************************    
+//*****************************************************************    
     $var=200;											//вычисление 200-го числа Фибоначчи
 	$n1=0;
 	$n=1;
@@ -36,4 +36,25 @@
 		echo $i.") ".$n1." + ".$n." = ".$result.PHP_EOL;
 		$n1=$n;
 		$n=$result;
+	}
+//*****************************************************************    календарь на текущий месяц
+	echo date('d.m.Y H:i:s',mktime(0, 0, 0, date('m'), 1, date('Y'))).PHP_EOL;
+	echo date('d.m.Y H:i:s',mktime(0, 0, 0, date('m')+1, 0, date('Y'))).PHP_EOL;
+	echo date('N.D',mktime(0, 0, 0, date('m'), date('d'), date('Y'))).PHP_EOL;
+	$startDay=mktime(0, 0, 0, date('m'), 1, date('Y'));
+	$endDay=mktime(0, 0, 0, date('m')+1, 0, date('Y'));
+	$emptyDay=date('N',mktime(0, 0, 0, date('m'), 1, date('Y')));
+	
+	echo "пн \t вт \t ср \t чт \t пт \t сб \t вс";
+	echo PHP_EOL;
+	for($j=1;$j<$emptyDay;$j++){
+		echo "   \t ";
+	}
+	for($i=$startDay;$i<=$endDay;$i+=60*60*24){
+		if($j>7){
+			echo PHP_EOL;
+			$j=1;
+		}
+		echo date('d',$i)." \t ";
+		$j++;
 	}
