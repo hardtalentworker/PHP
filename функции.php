@@ -69,3 +69,13 @@ $arr=['fst','snd','thd','frd','snd','thd'];
 	$arr=$arr_temp;
 	unset($arr_temp);
 	print_r($arr);
+//*****************************************************************    меняем местами две переменные int без третьей переменной
+$x=4;
+	$y=6;
+	echo "$x    $y".PHP_EOL;
+	$x+=$y;
+	echo "$x    $y".PHP_EOL;
+	$y=$x-$y;
+	echo "$x    $y".PHP_EOL;
+	$x-=$y;
+	echo "$x    $y".PHP_EOL;
