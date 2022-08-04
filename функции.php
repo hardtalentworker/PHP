@@ -58,3 +58,14 @@
 		echo date('d',$i)." \t ";
 		$j++;
 	}
+//*****************************************************************    удаление дубликатов в массиве $arr
+$arr=['fst','snd','thd','frd','snd','thd'];
+	$arr_temp=[];
+	print_r($arr);
+	foreach($arr as $key=>$value){
+		if(!(in_array($value,$arr_temp)))
+			$arr_temp[]=$value;
+	}
+	$arr=$arr_temp;
+	unset($arr_temp);
+	print_r($arr);
