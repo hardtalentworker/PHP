@@ -81,16 +81,13 @@ $x=4;
 	echo "$x    $y".PHP_EOL;
 //*****************************************************************    пузырьковая сортировка массива случайных элементов
 $arr=[];
-    $arr_size=mt_rand(5,10);
-    for ($i = 0; $i < $arr_size; $i++) {
-        $arr[$i]=mt_rand(0,100);
-    }
-    print_r($arr).PHP_EOL;
-    
-    for ($i = $arr_size-1; $i >=0; $i--) {
-        for ($j = 0; $j < $i; $j++) {
-            if ($arr[$j]>$arr[$j+1]) {
-                list($arr[$j],$arr[$j+1])=[$arr[$j+1],$arr[$j]];
-            }
-        }
-    }
+	$arr_count=mt_rand(5,10);
+	for($i=0;$i<$arr_count;$i++){
+		$arr[$i]=mt_rand(0,100);
+	}
+	
+	for($i=$arr_count-1;$i>=0;$i--){
+		for($j=0;$j<$i;$j++){
+			$arr[$j]>$arr[$j+1] ? list($arr[$j],$arr[$j+1])=[$arr[$j+1],$arr[$j]] : '';
+		}
+	}
