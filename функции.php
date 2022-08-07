@@ -96,3 +96,10 @@ $arr=[];
 		(($n%2)==0) ? $temp=false : $temp=true;
 		return $temp;
 	}
+//*****************************************************************    сложение неопределённого количества чисел. sum(n1,n2,n3,n4,n5)
+	function sum(...$n){
+		$temp=0;
+		foreach($n as $key=>$value)
+			$temp+=(int)$value;
+		return $temp;
+	}
