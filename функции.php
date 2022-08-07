@@ -91,3 +91,8 @@ $arr=[];
 			$arr[$j]>$arr[$j+1] ? list($arr[$j],$arr[$j+1])=[$arr[$j+1],$arr[$j]] : '';
 		}
 	}
+//*****************************************************************    чёт (false) / нечет (true)
+	function odd($n){
+		(($n%2)==0) ? $temp=false : $temp=true;
+		return $temp;
+	}
