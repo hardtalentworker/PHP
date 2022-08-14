@@ -104,3 +104,164 @@ $arr=[];
 			$temp+=(int)$value;
 		return $temp;
 	}
+//*****************************************************************    преобразование арабских цифр в римские до трёх знаков
+	function arab_to_rome(){
+		$fin=[];
+		$middle="";
+		$arr=[1=>'I',
+				5=>'V',
+				10=>'X',
+				50=>'L',
+				100=>'C',
+				500=>'D',
+				1000=>'M'];
+		
+		$x=2606;
+		echo $x.PHP_EOL;
+		
+		if($x>=1){
+			switch($x%10){
+				case 1:
+					$middle=$middle."I";
+					break;
+				case 2:
+					$middle=$middle."II";
+					break;
+				case 3:
+					$middle=$middle."III";
+					break;
+				case 4:
+					$middle=$middle."IV";
+					break;
+				case 5:
+					$middle=$middle."V";
+					break;
+				case 6:
+					$middle=$middle."VI";
+					break;
+				case 7:
+					$middle=$middle."VII";
+					break;
+				case 8:
+					$middle=$middle."VIII";
+					break;
+				case 9:
+					$middle=$middle."IX";
+					break;
+			};
+			$x/=10;
+			//echo $middle.PHP_EOL;
+			//echo $x.PHP_EOL;
+			$fin[]=$middle;
+			$middle="";
+		};
+		
+		if($x>=1){
+			switch($x%10){
+				case 1:
+					$middle=$middle."X";
+					break;
+				case 2:
+					$middle=$middle."XX";
+					break;
+				case 3:
+					$middle=$middle."XXX";
+					break;
+				case 4:
+					$middle=$middle."XL";
+					break;
+				case 5:
+					$middle=$middle."L";
+					break;
+				case 6:
+					$middle=$middle."LX";
+					break;
+				case 7:
+					$middle=$middle."LXX";
+					break;
+				case 8:
+					$middle=$middle."LXXX";
+					break;
+				case 9:
+					$middle=$middle."XC";
+					break;
+			};
+		
+			$x/=10;
+			//echo $middle.PHP_EOL;
+			//echo $x.PHP_EOL;
+			$fin[]=$middle;
+			$middle="";
+		};
+		
+		if($x>=1){
+			switch($x%10){
+				case 1:
+					$middle=$middle."C";
+					break;
+				case 2:
+					$middle=$middle."CC";
+					break;
+				case 3:
+					$middle=$middle."CCC";
+					break;
+				case 4:
+					$middle=$middle."CD";
+					break;
+				case 5:
+					$middle=$middle."D";
+					break;
+				case 6:
+					$middle=$middle."DC";
+					break;
+				case 7:
+					$middle=$middle."DCC";
+					break;
+				case 8:
+					$middle=$middle."DCCC";
+					break;
+				case 9:
+					$middle=$middle."CM";
+					break;
+			};
+		
+			$x/=10;
+			//echo $middle.PHP_EOL;
+			//echo $x.PHP_EOL;
+			$fin[]=$middle;
+			$middle="";
+		};
+		
+		if($x>=1){
+			switch($x%10){
+				case 1:
+					$middle=$middle."M";
+					break;
+				case 2:
+					$middle=$middle."MM";
+					break;
+				case 3:
+					$middle=$middle."MMM";
+					break;
+				case 4:
+					$middle=$middle."MMMM";
+					break;
+				case 5:
+					$middle=$middle."MMMMM";
+					break;
+			};
+			
+			$x/=10;
+			//echo $middle.PHP_EOL;
+			//echo $x.PHP_EOL;
+			$fin[]=$middle;
+			$middle="";
+		};
+	
+		//print_r($fin);
+		$fin=array_reverse($fin);
+		//print_r($fin);
+		//echo implode($fin);
+		
+		return implode($fin);
+	}
