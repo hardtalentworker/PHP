@@ -5,7 +5,7 @@
         if($file){
             while(($str=fgets($file))!==FALSE){
                 //echo 'checkbox{$i} '.$_POST['fcheckbox{$i}'];
-                echo "<input type='checkbox' name='fcheckbox{$i}' value='{$i}' checked>{$str}<br>";
+                echo "<input type='checkbox' name='fcheckbox{$i}' value='{$i}' checked>{$str}";
                 echo '<br>';
                 $i++;
             }

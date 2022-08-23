@@ -5,9 +5,34 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 </head>
 <body>
-	<form action='exec.php' method='post' target='_blank' enctype='multipart/form-data'>
-		<input type='checkbox' name='fcheckbox1' value='1' checked>dhjrthrhtrthrth<br>
-
+	<?php
+		if(!empty($_POST)){
+			$fcheckbox=$_POST['fcheckbox'];
+			$file="list.txt";
+			file_put_contents($file,'');
+			//$file=fopen("list.txt","w");
+			if($file){
+				foreach($fcheckbox as $key=>$value){
+					//fwrite($file,$value);
+					file_put_contents($file,$value,FILE_APPEND);
+				}
+			}
+			//fclose($file);
+		}
+	?>
+	<form method='post' enctype='multipart/form-data'>
+		<?php
+			$file=fopen("list.txt","r");
+			$i=1;
+			if($file){
+				while(($str=fgets($file))!==FALSE){
+					echo "<input type='checkbox' name='fcheckbox[]' value='{$str}' checked>{$str}";
+					echo '<br>';
+					$i++;
+				}
+				fclose($file);
+			}
+		?>
 		<input type='submit' name='fsubmit' value='fsubmitText'><br>
 	</form>
 </body>
