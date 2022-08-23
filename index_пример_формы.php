@@ -13,8 +13,10 @@
 		<input type='password' name='fpassword' size='10'><br>
 		<textarea name='ftextarea' cols='10' rows='5'>ftextareaTest</textarea><br>
 		<input type='hidden' name='fhidden' value='fhiddenText'><br>
-		<input type='checkbox' name='fcheckbox1' value='fcheckboxText1' checked><br>
-		<input type='checkbox' name='fcheckbox2' value='fcheckboxText2'><br>
+		<input type='checkbox' name='fcheckbox1' value='2' checked>fcheckboxText1<br>
+		<input type='checkbox' name='fcheckbox1' value='2'>fcheckboxText2<br>
+		<input type='checkbox' name='fcheckbox2' value='3'>fcheckboxText3<br>
+		<input type='checkbox' name='fcheckbox2' value='4'>fcheckboxText4<br>
 		<select name='fselect1[]' multiple size='5'>
 			<option>foptionText1</option>
 			<option value='foption2'>foptionText2</option>
