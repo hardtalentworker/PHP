@@ -78,8 +78,6 @@
 		if(($handle=fopen("ips.txt", "a+"))!== FALSE){
 			while (($data = fgetcsv($handle, 1000, ";")) != null) {
 			    $arr[$data[0]]=$data[1];
-			    echo('<br>');
-			    print_r($arr);
 			}
 			fclose($handle);
 		}
@@ -93,7 +91,10 @@
 		echo('<br>');
 		print_r($arr);
 		$handle = fopen('ips.txt', 'w');
-		fputcsv($handle,$arr);
+		foreach($arr as $key=>$volume){
+			fwrite($handle,$key.';'.$volume);
+		}
+		//fputcsv($handle,$arr);
 		fclose($handle);
 	?>
 </body>
