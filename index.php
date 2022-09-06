@@ -6,45 +6,30 @@
 </head>
 <body>
 	<?php
-		$arr=explode(' ',$_SERVER['HTTP_USER_AGENT']);
-		$arr1=explode('/',$arr[8]);
-		if($arr1[0]!='Gecko'){
-		    echo "<a href='exec.php'>exec.php</a><br>";
-		    echo('<br><br>');
-		    echo $_SERVER['HTTP_USER_AGENT'];
-		    echo('<br><br>');
-		    echo('Браузер '.$arr1[0].'<br>');
-		    echo('версия '.$arr1[1].'<br>');
-		    echo('ОС ').trim($arr[1],"(").' '.$arr[2].' '.trim($arr[3],";").'<br>';
-		}else{
-		    echo "Посещение запрешено";
+		require_once 'exec.php';
+		$fname=0;
+		$ffam=0;
+		$femail=0;
+		$options=['options'=>['regexp'=>'/^([а-яё]+|[a-z]+)$/i']]
+
+		if(!empty($_POST)){
+		    if(!empty($_POST['fname'])&!empty($_POST['ffam'])&!empty($_POST['femail'])){
+		        filter_var($_POST['fname'],FILTER_VALIDATE_REGEXP,$options) ? $fname=1 : $fname=0;
+		        filter_var($_POST['ffam'],FILTER_VALIDATE_REGEXP,$options) ? $ffam=1 : $ffam=0;
+		        filter_var($_POST['femail'],FILTER_VALIDATE_EMAIL,$options) ? $femail=1 : $femail=0;
+		        echo($fname.' '.$ffam.' '.$femail.'<br>');
+		        if($fname&$ffam&$femail){
+		            $param=[$_POST['fname'].' '.$_POST['ffam'],$_POST['femail']];
+		            file_refresh('test.txt',$param,0);		            
+		        }
+		    }
 		}
-		echo('<br><br>');
-		echo $_SERVER['REMOTE_ADDR'];
-		
-		unset($arr);
-		$arr=[];
-		
-		if(($handle=fopen("ips.txt", "a+"))!== FALSE){
-			while (($data = fgetcsv($handle, 1000, ";")) != null) {
-			    $arr[$data[0]]=$data[1];
-			    echo('<br>');
-			    print_r($arr);
-			}
-			fclose($handle);
-		}
-		
-		if($arr[$_SERVER['REMOTE_ADDR']]){
-		    $arr[$_SERVER['REMOTE_ADDR']]+=1;
-		}else{
-		    $arr[$_SERVER['REMOTE_ADDR']]=1;
-		}
-		
-		echo('<br>');
-		print_r($arr);
-		$handle = fopen('ips.txt', 'w');
-		fputcsv($handle,$arr);
-		fclose($handle);
 	?>
+	<form method='post' enctype='multipart/form-data'>
+		<br>Имя: <input type='text' name='fname' maxlength='50' size='10' value=''><br>
+		<br>Фамилия: <input type='text' name='ffam' maxlength='50' size='10' value=''><br>
+		<br>e-mail: <input type='text' name='femail' maxlength='50' size='10' value=''><br>
+		<br><input type='submit' name='fsubmit' value='fsubmitText'><br>
+	</form>
 </body>
 </html>
