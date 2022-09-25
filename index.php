@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" charset="utf-8">
-<head>
-	<title>без имени</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 </head>
 <body>
 	<?php
@@ -10,7 +5,13 @@
 		$fname=0;
 		$ffam=0;
 		$femail=0;
-		$options=['options'=>['regexp'=>'/^([а-яё]+|[a-z]+)$/i']]
+		$options = array('options'=>array('regexp'=>'/[а-яёА-Я]{5,20}/'));
+		
+		/*$options=[
+			'options'=>[
+				'regexp'=>'/[а-яёА-Я]{2,20}/'
+				]
+			];*/
 
 		if(!empty($_POST)){
 		    if(!empty($_POST['fname'])&!empty($_POST['ffam'])&!empty($_POST['femail'])){
