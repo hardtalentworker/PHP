@@ -5,7 +5,7 @@
 		$fname=0;
 		$ffam=0;
 		$femail=0;
-		$options = array('options'=>array('regexp'=>'/[а-яёА-Я]{5,20}/'));
+		$options = array('options'=>array('regexp'=>'/[а-яёА-Я]{5,20}/iu'));
 		
 		/*$options=[
 			'options'=>[
