@@ -1,5 +1,5 @@
 <?php
-    function file_refresh($file,array $param,$num_uni){ //$file - ôàéë $param - ìàññèâ $num_uni - íîìåð óíèêàëüíîãî ýëåìåíòà
+    function file_refresh($file,array $param,$num_uni){ //$file - Ñ„Ð°Ð¹Ð» $param - Ð¼Ð°ÑÑÐ¸Ð² $num_uni - Ð½Ð¾Ð¼ÐµÑ€ ÑƒÐ½Ð¸ÐºÐ°Ð»ÑŒÐ½Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°
         $arr_temp=[];
         $i=0;
         
