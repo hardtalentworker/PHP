@@ -28,6 +28,10 @@
 		<input type='radio' name='fradio' value='fradio1' checked>fradioText1<br>
 		<input type='radio' name='fradio' value='fradio2'>fradioText2<br>
 		<input type='file' name='filename' size='10'><br><br>
+		
+		<br>Количество: <input type='text' name='fkol' pattern="\d{1,3}" placeholder="###" maxlength='50' size='10' value=''><br>
+		<br>Цена: <input type='text' name='fcost' pattern="\d{1,3}\.{1}\d{2}" placeholder="###.##" maxlength='50' size='10' value=''><br>
+		
 		<input type='submit' name='fsubmit' value='fsubmitText'><br>
 	</form>
 </body>
