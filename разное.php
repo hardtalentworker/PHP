@@ -60,3 +60,8 @@
 	echo PHP_EOL;
 	echo 50<=>4;
 	echo PHP_EOL;
+//******************************************* заменяет в строке $str_in шаблон $options на символы $replacement
+	$options = '/((?<!г)(?<!рис)(?<!табл))\./i';
+	$replacement = '...';
+	$str_in='В 1945г., обозначены. На рис.2, указаны в табл.3.';
+	echo preg_replace($options,$replacement,$str_in).PHP_EOL;
