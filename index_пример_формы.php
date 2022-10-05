@@ -8,6 +8,19 @@
 </head>
 
 <body>
+	<?php
+		$temp=[];							// поиск на сайте в интернете по регулярке
+		$str = file_get_contents('http://php.net');
+		preg_match_all('/<title>(.+)<\/title>/iu', $str,$temp);
+		foreach($temp as $key=>$value){
+		    $str=strip_tags(implode(",",$value));
+		    echo $str.'<br>';
+		}
+		preg_match('/<title>(.+)<\/title>/iu', $str,$temp);
+		$str=strip_tags(implode(",",$value));
+		echo $str.'<br>';
+	?>
+	
 	<form action='exec.php' method='post' target='_blank' enctype='multipart/form-data'>
 		<input type='text' name='ftext' maxlength='50' size='10' value=''><br>
 		<input type='password' name='fpassword' size='10'><br>
