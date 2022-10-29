@@ -305,3 +305,14 @@ function file_refresh($file,array $param,$num_uni){ //$file - файл $param - 
         unset($arr_temp);
         
         return $result;
+
+//*****************************************************************    поиск документации на функцию PHP на сайте php.net
+	class Help{
+		public function find($name_func){
+			$regexp='/<div id="function.'.$name_func.'" class="refentry".*section id="usernotes/us';
+			$str = file_get_contents('https://www.php.net/manual/ru/function.'.$name_func.'.php');
+			preg_match_all($regexp,$str,$temp);
+			
+			echo($temp[0][0]);
+		}
+	}
