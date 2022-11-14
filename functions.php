@@ -316,3 +316,23 @@ function file_refresh($file,array $param,$num_uni){ //$file - файл $param - 
 			echo($temp[0][0]);
 		}
 	}
+
+//*****************************************************************    вывод простых чисел до 100
+    $n=100;
+    echo '2'.PHP_EOL;
+    echo '3'.PHP_EOL;
+    
+    for ($i = 4; $i < $n; $i++) {
+        $flag=0;
+        $count=2;
+        $half=$i/2;
+        while ($count<=$half) {
+            if ($i%$count==0){
+                $flag=1;
+                break;
+            }
+            $count++;
+        }
+        if ($flag==0)
+            echo $i.PHP_EOL;
+    }
